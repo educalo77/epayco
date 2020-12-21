@@ -1,22 +1,18 @@
-
 .all {
-
     top: 0%;
     left: 0%;
     width: 100 vh;
     height: 100vh;
-
-
 }
-.text {
-    position: relative;
+
+.text{
+    margin-top: 5px;
+}
+.image_profile{
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    
-
-    
+    align-items: center;
 }
+
 .h1img {
     position: relative;
     display: flex;
@@ -25,10 +21,12 @@
     align-items: center;
 
 }
+
 .imageProfile {
     border-radius: 50%;
 
 }
+
 .botlogout{
     position: relative;
     display: flex;
@@ -83,12 +81,32 @@
 
 .imageProfile{
     width: 40px;
-    border-radius: 50%
+    border-radius: 50%;
+
+    
 }
 
 .appbar{
+    display: flex;
+    
     background-color:grey;
     color: orange;
     width: 100vw;
     box-shadow: 2.4px 2.4px 2.4px 2.4px orange;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+
+.googlebot{
+margin-left: 255px;
+margin-top: 20px;
+}
+
+.copy{
+    margin-top: 45%;
+    width: 100vw;
 }

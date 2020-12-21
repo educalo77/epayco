@@ -80,3 +80,15 @@
     text-decoration: none;
 
 }
+
+.imageProfile{
+    width: 40px;
+    border-radius: 50%
+}
+
+.appbar{
+    background-color:grey;
+    color: orange;
+    width: 100vw;
+    box-shadow: 2.4px 2.4px 2.4px 2.4px orange;
+}

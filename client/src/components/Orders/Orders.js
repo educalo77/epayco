@@ -44,7 +44,7 @@ export default function Orders() {
             <TableRow key={row.id}>
               <TableCell>{row.createdAt.slice(0,10)}</TableCell>
               <TableCell>{row.createdAt.slice(11,19)}</TableCell>
-              <TableCell>{row.action}</TableCell>
+              <TableCell>{row.action === 'payment'? 'PAGO' : 'RECARGA'}</TableCell>
               <TableCell align="right">{row.amount}</TableCell>
             </TableRow>
           ))}

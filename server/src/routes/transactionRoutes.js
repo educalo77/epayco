@@ -32,7 +32,7 @@ router
     const userId = req.user ? req.user.userId : false
     const {amount} = req.body;
     userId?
-    jwt.verify(amount.token, secret, (error, data) => {
+      jwt.verify(amount.token, secret, (error, data) => {
       if (error) res.sendStatus(401)
       else {
         getOne(data.id)

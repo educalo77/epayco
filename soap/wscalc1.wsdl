@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="wscalc1" targetNamespace="http://localhost:8000/wscalc1" xmlns="http://localhost:8000/wscalc1" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl:message name="createUserRequest">
+    <wsdl:part name="name" type="xs:string"/>
+    <wsdl:part name="email" type="xs:string"/>
+    <wsdl:part name="phone" type="xs:string"/>
+    <wsdl:part name="document" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="rechargeActionRequest">
+    <wsdl:part name="userId" type="xs:string"/>
+    <wsdl:part name="amount" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="paymentActionRequest">
+    <wsdl:part name="userId" type="xs:string"/>
+    <wsdl:part name="amount" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="paymentConfirmRequest">
+    <wsdl:part name="userId" type="xs:string"/>
+    <wsdl:part name="amount" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="balanceGetRequest">
+    <wsdl:part name="userId" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="transactionsGetRequest">
+    <wsdl:part name="userId" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="emailLoginRequest">
+    <wsdl:part name="email" type="xs:string"/>
+    <wsdl:part name="phone" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="createUserResponse">
+    <wsdl:part name="createuserres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="rechargeActionResponse">
+    <wsdl:part name="rechargeactionres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="paymentActionResponse">
+    <wsdl:part name="paymentactionres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="paymentConfirmResponse">
+    <wsdl:part name="paymentconfirmres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="balanceGetResponse">
+    <wsdl:part name="balancegetres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="transactionsGetResponse">
+    <wsdl:part name="transactionsgetres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:message name="emailLoginResponse">
+    <wsdl:part name="emailloginres" type="xs:string"/>
+  </wsdl:message>
+  <wsdl:portType name="calcP">
+    <wsdl:operation name="createUser">
+      <wsdl:input message="createUserRequest"/>
+      <wsdl:output message="createUserResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="rechargeAction">
+      <wsdl:input message="rechargeActionRequest"/>
+      <wsdl:output message="rechargeActionResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="paymentAction">
+      <wsdl:input message="paymentActionRequest"/>
+      <wsdl:output message="paymentActionResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="paymentConfirm">
+      <wsdl:input message="paymentConfirmRequest"/>
+      <wsdl:output message="paymentConfirmResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="balanceGet">
+      <wsdl:input message="balanceGetRequest"/>
+      <wsdl:output message="balanceGetResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="transactionsGet">
+      <wsdl:input message="transactionsGetRequest"/>
+      <wsdl:output message="transactionsGetResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="emailLogin">
+      <wsdl:input message="emailLoginRequest"/>
+      <wsdl:output message="emailLoginResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="calcB" type="calcP">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createUser">
+      <soap:operation soapAction="createUser"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rechargeAction">
+      <soap:operation soapAction="rechargeAction"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="paymentAction">
+      <soap:operation soapAction="paymentAction"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="paymentConfirm">
+      <soap:operation soapAction="paymentConfirm"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="balanceGet">
+      <soap:operation soapAction="balanceGet"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transactionsGet">
+      <soap:operation soapAction="balanceGet"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emailLogin">
+      <soap:operation soapAction="emailLogin"/>
+      <wsdl:input>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws">
+    <wsdl:port binding="calcB" name="calc">
+      <soap:address location="http://localhost:8001/wscalc1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

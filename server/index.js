@@ -1,19 +1,8 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-
-// middleware
-
-app.use(express.json()); //req.body
-app.use(cors());
-
-// ROUTES
-
-//register and login ROUTES
-app.use("/auth", require("./routes/jwtAuth"));
-
-// dashboard route
-app.use("/dashboard", require("./routes/dashboard"));
-app.listen(5000, () => {
-    console.log("Server is running on port 5000")
+const server = require("./src/app.js");
+const { conn } = require("./src/db.js");
+// Syncing all the models at once.
+conn.sync({ force: false }).then(() => {
+  server.listen(3001, () => {
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
+  });
 });

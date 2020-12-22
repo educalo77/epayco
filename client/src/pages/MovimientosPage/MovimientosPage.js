@@ -17,7 +17,6 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import PaymentIcon from '@material-ui/icons/Payment';
-import Chart from '../../components/Chart/Chart';
 import Deposits from '../../components/Deposits/Deposits';
 import Orders from '../../components/Orders/Orders';
 import { useHistory } from "react-router-dom";
@@ -28,15 +27,28 @@ import Axios from 'axios';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
 import MoneyIcon from '@material-ui/icons/Money';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ModalForm from "../../components/ModalForm/ModalForm"
 import { Menu, MenuItem } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
 import HistoryIcon from '@material-ui/icons/History';
 import TimelineIcon from '@material-ui/icons/Timeline';
 
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://epayco.co/">
+        e-PayCo
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const drawerWidth = 240;
 
@@ -98,6 +110,14 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(9),
     },
   },
+  appBarSpacer: {
+    marginTop: '-30%'
+  }, 
+  content: {
+    flexGrow: 1,
+    height: '100vh',
+    overflow: 'auto',
+  },
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
@@ -114,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
   titles:{
     padding:"10px"
   },
-  content: {
+    content: {
     backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
@@ -125,15 +145,11 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   copy: {
-    marginTop: '18%',
-  },
-  imagecard: {
-    marginTop: '10%',
-    marginLeft: '10%'
+    marginTop: '21%'
   }
 }));
 
-export default function Home() {
+export default function BalancePage() {
   const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.userReducer.user)
@@ -195,7 +211,7 @@ export default function Home() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png" alt="" />
+            <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png"  />
           </Typography>
           {user && user.name ? (<h2>Bienvenido {user.name}! </h2>) : ('')}
           <IconButton onClick={handleClick} color="inherit">
@@ -261,8 +277,20 @@ export default function Home() {
         </List>
       </Drawer>
       <main className={classes.content}>
-          <img className="imagelogocentral" src=" https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/logos/logo_epayco_400px.png" alt="" />
-          <img className={classes.imagecard} width="1000px"  src="https://multimedia.epayco.co/epayco-landing/btns/powered_01.png" alt="" />
+      <img className="imagelogocentral" src=" https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/logos/logo_epayco_400px.png"  />
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Orders />
+              </Paper>
+            </Grid>
+          </Grid>
+          <Box className={classes.copy}>
+            <Copyright />
+          </Box>
+        </Container>
         <ModalForm/>
       </main>
     </div>

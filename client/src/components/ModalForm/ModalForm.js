@@ -6,7 +6,6 @@ import Fade from '@material-ui/core/Fade';
 import { useSelector, useDispatch } from 'react-redux';
 import {closeModal, setTransaction, getTransactions} from "../../store/actions/transactionActions/transactionActions"
 import { TextField, Button } from '@material-ui/core';
-import { getBalanceUser } from '../../store/actions/balanceActions/balanceActions';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -22,6 +21,13 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  submit: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '141px',
+    height: '38px',
+    marginLeft: '35%'
+  }
 }));
 
 export function validation(values){
@@ -90,15 +96,15 @@ export default function TransitionsModal() {
       >
         <Fade in={openModal?true:false}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">{openModal?openModal.toUpperCase():""}</h2>
+            <h2 id="transition-modal-title">{openModal === 'payment' ? 'PAGAR' : 'RECARGAR' }</h2>
             <form  className={classes.form} noValidate onSubmit={handleSubmit}>
                 <TextField
                     variant="outlined"
                     margin="normal"
                     required
                     fullWidth
-                    id="amount"
-                    label="Amount"
+                    id="Amount"
+                    label="Cantidad"
                     name="amount"
                     autoFocus
                     onChange={handleChange}
@@ -110,7 +116,7 @@ export default function TransitionsModal() {
                     required
                     fullWidth
                     name="amountConfirmation"
-                    label="Amount Confirmation"
+                    label="Confirmar Cantidad"
                     id="amountConfirmation"
                     onChange={handleChange}
                     type="number"
@@ -123,7 +129,7 @@ export default function TransitionsModal() {
                     color="primary"
                     className={classes.submit}
                 >
-                    Acept
+                   <img width="150px" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco5.png" alt="" />
                 </Button>
             </form>
           </div>

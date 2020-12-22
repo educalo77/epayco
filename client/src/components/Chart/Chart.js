@@ -28,7 +28,7 @@ export default function Chart() {
 
   return (  
     <React.Fragment>
-      <Title>History</Title>
+      <Title>Linea de Tiempo</Title>
       <ResponsiveContainer>
         <LineChart
           data={chartData}
@@ -46,7 +46,7 @@ export default function Chart() {
               position="left"
               style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
             >
-              Sales ($)
+              Saldo ($)
             </Label>
           </YAxis>
           <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />

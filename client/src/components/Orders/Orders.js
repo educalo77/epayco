@@ -29,14 +29,14 @@ export default function Orders() {
 
   return ( 
     <React.Fragment>
-      <Title>Last movements</Title>
+      <Title>Ultimos Movimientos</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Hour</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell align="right">Amount</TableCell>
+            <TableCell>Fecha</TableCell>
+            <TableCell>Hora</TableCell>
+            <TableCell>Transaccion</TableCell>
+            <TableCell align="right">Total</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -51,8 +51,8 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="#" >
-          See more orders
+        <Link color="primary" href="/balance" >
+          Ver Saldo
         </Link>
       </div>
     </React.Fragment>

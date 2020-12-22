@@ -3,6 +3,8 @@ import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/SignUp/SignUp";
 import Home from "../pages/Home/Home";
 import ConfirmPage from "../pages/ConfirmPage/ConfirmPage";
+import BalancePage from "../pages/BalancePage/BalancePage";
+import MovimientosPage from "../pages/MovimientosPage/MovimientosPage";
 
 export default function Routes() {
   return<>             
@@ -11,6 +13,8 @@ export default function Routes() {
             <Route exact path="/signin" component={SignIn}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/confirmpay" component={ConfirmPage}/>
+            <Route exact path="/balance" component={BalancePage}/>
+            <Route exact path="/movements" component={MovimientosPage}/>
           </Switch>
         </>
 }

@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Orders() {
   const classes = useStyles();
-  const dispatch = useDispatch()
-  const allTransactions = useSelector((store)=> store.transactionReducer.allTransactions)
-  const {openModal} = useSelector ((store)=> store.transactionReducer)
+  const dispatch = useDispatch();
+  const allTransactions = useSelector((store) => store.transactionReducer.allTransactions);
+  const { openModal } = useSelector((store) => store.transactionReducer);
+  const user = useSelector((state) => state.userReducer.user);
+
   useEffect(()=>{
     (async function(){
       dispatch( await getTransactions())
@@ -29,7 +31,7 @@ export default function Orders() {
 
   return ( 
     <React.Fragment>
-      <Title>Ultimos Movimientos</Title>
+      <Title>Ultimos Movimientos {user? ('de ' + user.name.charAt(0).toUpperCase() + user.name.slice(1)): ('')} </Title>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -45,7 +47,7 @@ export default function Orders() {
               <TableCell>{row.createdAt.slice(0,10)}</TableCell>
               <TableCell>{row.createdAt.slice(11,19)}</TableCell>
               <TableCell>{row.action === 'payment'? 'PAGO' : 'RECARGA'}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+              <TableCell align="right">$ {row.amount}</TableCell>
             </TableRow>
           ))}
         </TableBody>

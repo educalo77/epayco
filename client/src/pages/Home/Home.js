@@ -3,23 +3,15 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import PaymentIcon from '@material-ui/icons/Payment';
-import Chart from '../../components/Chart/Chart';
-import Deposits from '../../components/Deposits/Deposits';
-import Orders from '../../components/Orders/Orders';
 import { useHistory } from "react-router-dom";
 import {useDispatch,useSelector} from "react-redux"
 import { getTransactions, openModal } from '../../store/actions/transactionActions/transactionActions';
@@ -35,7 +27,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ModalForm from "../../components/ModalForm/ModalForm"
 import { Menu, MenuItem } from '@material-ui/core';
 import HistoryIcon from '@material-ui/icons/History';
-import TimelineIcon from '@material-ui/icons/Timeline';
 
 
 const drawerWidth = 240;
@@ -149,7 +140,8 @@ export default function Home() {
         dispatch( await getTransactions())
         dispatch( await getBalanceUser())
     })() 
-  },[])  
+  }, [dispatch, history]) 
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -169,7 +161,6 @@ export default function Home() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   const handleOpenModal = (action) =>{    
     dispatch( openModal(action) )
@@ -197,7 +188,7 @@ export default function Home() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png" alt="" />
           </Typography>
-          {user && user.name ? (<h2>Bienvenido {user.name}! </h2>) : ('')}
+          {user && user.name ? (<h2>Bienvenido {user.name.charAt(0).toUpperCase() + user.name.slice(1)}! </h2>) : ('')}
           <IconButton onClick={handleClick} color="inherit">
               <AccountCircleIcon />
           </IconButton>
@@ -210,6 +201,7 @@ export default function Home() {
           >
 
             <Divider/>
+            <MenuItem >Perfil</MenuItem>
             <MenuItem onClick={handleLogOut}>Logout</MenuItem>
           </Menu>
         </Toolbar>
@@ -262,7 +254,7 @@ export default function Home() {
       </Drawer>
       <main className={classes.content}>
           <img className="imagelogocentral" src=" https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/logos/logo_epayco_400px.png" alt="" />
-          <img className={classes.imagecard} width="1000px"  src="https://multimedia.epayco.co/epayco-landing/btns/powered_01.png" alt="" />
+          <img className={classes.imagecard} width="80%"  src="https://multimedia.epayco.co/epayco-landing/btns/powered_01.png" alt="" />
         <ModalForm/>
       </main>
     </div>

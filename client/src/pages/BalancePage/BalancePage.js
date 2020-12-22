@@ -33,7 +33,6 @@ import ModalForm from "../../components/ModalForm/ModalForm"
 import { Menu, MenuItem } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import HistoryIcon from '@material-ui/icons/History';
-import TimelineIcon from '@material-ui/icons/Timeline';
 
 
 function Copyright() {
@@ -213,9 +212,9 @@ export default function BalancePage() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png"  />
+            <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png" alt="" />
           </Typography>
-          {user && user.name ? (<h2>Bienvenido {user.name}! </h2>) : ('')}
+          {user && user.name ? (<h2>Bienvenido {user.name.charAt(0).toUpperCase() + user.name.slice(1)}! </h2>) : ('')}
           <IconButton onClick={handleClick} color="inherit">
               <AccountCircleIcon />
           </IconButton>
@@ -226,7 +225,6 @@ export default function BalancePage() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-
             <Divider/>
             <MenuItem onClick={handleLogOut}>Logout</MenuItem>
           </Menu>
@@ -279,28 +277,15 @@ export default function BalancePage() {
         </List>
       </Drawer>
       <main className={classes.content}>
-        <img className="imagelogocentral" src=" https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/logos/logo_epayco_400px.png"  />
+        <img className="imagelogocentral" src=" https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/logos/logo_epayco_400px.png" alt="" />
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={1}>
-            {/* Chart */}
-            {/* <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid> */}
-            {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
-            {/* <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid> */}
           </Grid>
           <Box className={classes.copy}>
             <Copyright />

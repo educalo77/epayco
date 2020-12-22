@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Title from '../Title/Title';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBalanceUser } from '../../store/actions/balanceActions/balanceActions';
+import 'moment/locale/fr';
 
 
 // function preventDefault(event) {
@@ -26,9 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Deposits() {
   const classes = useStyles();
-  const dispatch= useDispatch()
-  const {balance} = useSelector ((store)=> store.balanceReducer)
-  const {openModal} = useSelector ((store)=> store.transactionReducer)
+  const dispatch = useDispatch();
+  const { balance } = useSelector((store) => store.balanceReducer);
+  const { openModal } = useSelector((store) => store.transactionReducer);
+  const user = useSelector((state) => state.userReducer.user); 
+
   useEffect(()=>{
     (async function(){
       dispatch( await getBalanceUser())
@@ -37,11 +40,10 @@ export default function Deposits() {
 
   const date = [new Date().toLocaleString()];
 
-
   return (
   
-    <React.Fragment className={classes.card} >
-      <Title>Saldo Disponible</Title>
+    <React.Fragment  >
+      <Title>Saldo Disponible {user && user.email? ('de ' + user.email) : ('')} </Title>
       <Typography component="p" variant="h4" className={classes.depositContext}>
         ${balance?.available}
       </Typography>

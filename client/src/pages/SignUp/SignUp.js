@@ -9,11 +9,13 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import {useDispatch,useSelector} from "react-redux"
+import { useDispatch } from "react-redux";
 import { SignUpUser } from '../../store/actions/userActions/userActions';
 import { useHistory, NavLink } from "react-router-dom";
-import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import Paper from '@material-ui/core/Paper';
+import "../styles.css";
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -28,22 +30,37 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+
+  root: {
+    height: '100vh',
+  },
+  image: {
+    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
   paper: {
-    marginTop: theme.spacing(8),
+    margin: theme.spacing(8, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+      margin: theme.spacing(1),
+      backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[700] : theme.palette.grey[900],
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+      margin: theme.spacing(3, 0, 2),
+      backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[500] : theme.palette.grey[700],
   },
 }));
 
@@ -67,15 +84,18 @@ export default function SignUp() {
   }
 
   return (   
-    <Container component="main" maxWidth="xs">
+   <div className="login" >
+      <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <PermContactCalendarIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Register
+          </Typography>
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -133,7 +153,7 @@ export default function SignUp() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+
             className={classes.submit}
           >
             Sign Up
@@ -144,12 +164,14 @@ export default function SignUp() {
                 Already have an account? Sign in
               </NavLink>
             </Grid>
-          </Grid>
+              </Grid>
+            <Box className="copyright2" >
+              <Copyright />
+            </Box>
         </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
+        </div>
+      </Grid>
+      </Grid>
+    </div>
   );
 }

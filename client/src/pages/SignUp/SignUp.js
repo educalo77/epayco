@@ -3,9 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,21 +11,9 @@ import { useDispatch } from "react-redux";
 import { SignUpUser } from '../../store/actions/userActions/userActions';
 import { useHistory, NavLink } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
+import { toast } from 'react-toastify';
 import "../styles.css";
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        e-PayCo
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
 
@@ -80,7 +66,13 @@ export default function SignUp() {
   async function handleSubmit(event){
     event.preventDefault()
     dispatch( await SignUpUser(input.name,input.email, input.phone, input.document) )
-    history.push("/signin")
+    if (input.name && input.email && input.phone && input.document) {
+      history.push("/signin");
+      toast.success('Se ha registrado con exito');
+    } else {
+      toast.error('Por favor complete todos los campos');
+    }
+
   }
 
   return (   
@@ -165,9 +157,6 @@ export default function SignUp() {
               </NavLink>
             </Grid>
               </Grid>
-            <Box className="copyright2" >
-              <Copyright />
-            </Box>
         </form>
         </div>
       </Grid>

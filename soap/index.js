@@ -19,8 +19,8 @@ const secret = process.env.EMAIL_SECRET || 'secret';
 
 
 var service = {
-    ws: {
-        calc: {
+    epayco: {
+        billetera: {
             createUser : async function({name,email,phone,document}) {
               let user = await createOne(name,email,phone,document)
               return { createuserres : user }

@@ -186,7 +186,7 @@ export default function Home() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png" alt="" />
+            <img className="imagelogo" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/btn7.png " alt="" />
           </Typography>
           {user && user.name ? (<h2>Bienvenido {user.name.charAt(0).toUpperCase() + user.name.slice(1)}! </h2>) : ('')}
           <IconButton onClick={handleClick} color="inherit">

@@ -2,17 +2,10 @@ import React, { useEffect } from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Title from '../Title/Title';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBalanceUser } from '../../store/actions/balanceActions/balanceActions';
 import 'moment/locale/fr';
 
-
-// function preventDefault(event) {
-
-//   event.preventDefault();
-
-// }
 
 const useStyles = makeStyles((theme) => ({
   depositContext: {
@@ -33,7 +26,7 @@ export default function Deposits() {
   const dispatch = useDispatch();
   const { balance } = useSelector((store) => store.balanceReducer);
   const { openModal } = useSelector((store) => store.transactionReducer);
-  const user = useSelector((state) => state.userReducer.user); 
+
 
   useEffect(()=>{
     (async function(){

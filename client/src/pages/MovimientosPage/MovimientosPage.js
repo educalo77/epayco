@@ -34,21 +34,9 @@ import ModalForm from "../../components/ModalForm/ModalForm"
 import { Menu, MenuItem } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import HistoryIcon from '@material-ui/icons/History';
-import TimelineIcon from '@material-ui/icons/Timeline';
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://epayco.co/">
-        e-PayCo
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const drawerWidth = 240;
 
@@ -210,7 +198,7 @@ export default function BalancePage() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            <img className="imagelogo" src="https://epayco.co/img/logo_fondo_epayco_davi.png" alt="" />
+            <img className="imagelogo" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/btn7.png " alt="" />
           </Typography>
           {user && user.name ? (<h2>Bienvenido {user.name.charAt(0).toUpperCase() + user.name.slice(1)}! </h2>) : ('')}
           <IconButton onClick={handleClick} color="inherit">
@@ -286,9 +274,6 @@ export default function BalancePage() {
               </Paper>
             </Grid>
           </Grid>
-          <Box className={classes.copy}>
-            <Copyright />
-          </Box>
         </Container>
         <ModalForm/>
       </main>

@@ -19,21 +19,6 @@ import { useHistory, NavLink } from "react-router-dom";
 import "../styles.css";
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit">
-      e-PayCo
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-
-
 const useStyles = makeStyles((theme) => ({
 
   root: {
@@ -94,9 +79,9 @@ export default function SignIn() {
   return (
     <div className="login" >
       <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <CssBaseline />
+        <Grid item xs={false} sm={4} md={7} className={classes.image} />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -150,9 +135,6 @@ export default function SignIn() {
               </NavLink>
             </Grid>
           </Grid>
-            <Box className="copyright" >
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>

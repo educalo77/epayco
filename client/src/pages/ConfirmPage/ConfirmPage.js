@@ -73,7 +73,7 @@ export default function ConfirmPage() {
           <MonetizationOnIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Confirm Pay
+          Confirmar Pago
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <TextField
@@ -82,7 +82,7 @@ export default function ConfirmPage() {
             required
             fullWidth
             name="phone"
-            label="Phone"
+            label="Telefono"
             id="phone"
             autoComplete="phone"
             onChange={handleChange}
@@ -93,7 +93,7 @@ export default function ConfirmPage() {
             variant="contained"
             className={classes.submit}
           >
-            Confirma el Pago
+            Confirma Pago
           </Button>
         </form>
       </div>

@@ -51,6 +51,8 @@
   <wsdl:message name="emailLoginResponse">
     <wsdl:part name="emailloginres" type="xs:string"/>
   </wsdl:message>
+
+
   <wsdl:portType name="calcP">
     <wsdl:operation name="createUser">
       <wsdl:input message="createUserRequest"/>
@@ -81,6 +83,8 @@
       <wsdl:output message="emailLoginResponse"/>
     </wsdl:operation>
   </wsdl:portType>
+
+
   <wsdl:binding name="calcB" type="calcP">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="createUser">
@@ -147,6 +151,8 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+
+  
   <wsdl:service name="epayco">
     <wsdl:port binding="calcB" name="billetera">
       <soap:address location="http://localhost:8001/wscalc1"/>

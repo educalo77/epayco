@@ -67,17 +67,6 @@ var service = {
               return {balancegetres: balances.dataValues}
             },
             emailLogin: async ({email,phone})=>{
-                /* let aux="algo"
-                let res = {send:function(e){
-                aux.push(e) 
-                console.log("send",aux)}}
-                await passport.authenticate("local",function(err,user,info){
-                console.log(err);
-                console.log(user);
-                console.log(info);
-                res.send("algo")
-                })({body:{email,phone}},res)              
-                console.log("es",aux); */
                 let user = await getOneByEmail({email:email})  
                 return {emailLogin: user}
             }

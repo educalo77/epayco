@@ -5,10 +5,10 @@ const BalanceRoutes = require("./balanceRoutes");
 const AuthRoutes = require("./authRoutes");
 const index = require("./soapRoutes/index.js");
 
-router.use("/users",UserRoutes);
+router.use("/users", UserRoutes);
+router.use("/auth",AuthRoutes);
 router.use("/transactions",TransactionRoutes);
 router.use("/balance",BalanceRoutes);
-router.use("/auth",AuthRoutes);
 router.use("/soap",index);
 
 module.exports = router;

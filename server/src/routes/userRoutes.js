@@ -3,8 +3,6 @@ const router = require("express").Router();
 const {
   createOne,
   getOne,
-  editOne,
-  deleteOne,
   
 } = require("../controllers/userControllers");
 
@@ -25,38 +23,7 @@ router
     :
     res.sendStatus(401)  
   })
-  .put((req, res) => {
-    const userId = req.user ? req.user.userId : false
-    const {
-      name, 
-      email, 
-      phone, 
-      document
-    } = req.body;
-    userId?
-      editOne({
-        userId,
-        name, 
-        email, 
-        phone, 
-        document
-      })
-      .then((user) => res.json(user))
-      .catch((err) => res.status(400).json({
-        err
-      }))
-    :
-    res.sendStatus(401) 
-  })
-  .delete((req, res) => {
-    const userId = req.user ? req.user.userId : false
-    userId?
-    deleteOne(id)
-      .then((user) => res.json(user).status(200))
-      .catch((err) => res.status(400).json(err))
-    :
-    res.sendStatus(401)
-  });
+
   
 
   module.exports = router;

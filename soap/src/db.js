@@ -1,6 +1,5 @@
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
-const env = require('./env.js');
 
 const UserModel = require("./models/user");
 const TransactionModel = require("./models/transaction");

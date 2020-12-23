@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBalanceUser } from '../../store/actions/balanceActions/balanceActions';
+import { NavLink } from 'react-router-dom';
 import 'moment/locale/fr';
 
 
@@ -49,9 +50,9 @@ export default function Deposits() {
       } )}
       </Typography>
       <div>
-        <Link color="primary" href="/movements">
+        <NavLink color="primary" to="/movements">
           Ver historial
-        </Link>
+        </NavLink>
       </div>
     </React.Fragment>
   );

@@ -27,9 +27,9 @@ const getAll = () => {
   });
 };
 
-const createOne = (name, email, phone, document, googleId, facebookId) => {
+const createOne = (name, email, phone, document) => {
   return new Promise((resolve, reject) => {   
-    User.create({ name, email, phone, document, googleId, facebookId })
+    User.create({ name, email, phone, document })
       .then((user) =>{
         createOneBalance(user.id,0)
         resolve(user)
@@ -94,27 +94,6 @@ const getOneByEmail = async (email) => {
   }
 };
 
-const getOneByGoogleId = async (googleId) => {
-  try {
-    const user = User.findOne({
-      where: { googleId },
-    });
-    return user;
-  } catch (error) {
-    return error;
-  }
-};
-
-const getOneByFacebookId = async (facebookId) => {
-  try {
-    const user = User.findOne({
-      where: { facebookId },
-    });
-    return user;
-  } catch (error) {
-    return error;
-  }
-};
 
 const deleteOne = (id) => {
   return new Promise((resolve, reject) => {
@@ -133,8 +112,6 @@ module.exports = {
   getAll,
   getOne,
   getOneByEmail,
-  getOneByGoogleId,
-  getOneByFacebookId,
   editOne,
   deleteOne,
 };

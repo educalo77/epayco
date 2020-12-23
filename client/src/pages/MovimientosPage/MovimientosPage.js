@@ -212,7 +212,8 @@ export default function BalancePage() {
             onClose={handleClose}
           >
 
-            <Divider/>
+            <Divider />
+            <MenuItem >Perfil</MenuItem>
             <MenuItem onClick={handleLogOut}>Logout</MenuItem>
           </Menu>
         </Toolbar>

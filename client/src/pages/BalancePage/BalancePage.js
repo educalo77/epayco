@@ -211,7 +211,8 @@ export default function BalancePage() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <Divider/>
+            <Divider />
+            <MenuItem >Perfil</MenuItem>
             <MenuItem onClick={handleLogOut}>Logout</MenuItem>
           </Menu>
         </Toolbar>

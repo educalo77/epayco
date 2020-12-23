@@ -27,8 +27,8 @@ const getAll = () => {
   });
 };
 
-const createOne = async (name, email, phone, document, googleId, facebookId) => {
-  let user = await User.create({ name, email, phone, document, googleId, facebookId })
+const createOne = async (name, email, phone, document) => {
+  let user = await User.create({ name, email, phone, document})
   let balance = await createOneBalance(user.id,0)
   return user
 };
@@ -87,27 +87,6 @@ const getOneByEmail = async ({email}) => {
   }
 };
 
-const getOneByGoogleId = async (googleId) => {
-  try {
-    const user = User.findOne({
-      where: { googleId },
-    });
-    return user;
-  } catch (error) {
-    return error;
-  }
-};
-
-const getOneByFacebookId = async (facebookId) => {
-  try {
-    const user = User.findOne({
-      where: { facebookId },
-    });
-    return user;
-  } catch (error) {
-    return error;
-  }
-};
 
 const deleteOne = (id) => {
   return new Promise((resolve, reject) => {
@@ -126,8 +105,6 @@ module.exports = {
   getAll,
   getOne,
   getOneByEmail,
-  getOneByGoogleId,
-  getOneByFacebookId,
   editOne,
   deleteOne,
 };

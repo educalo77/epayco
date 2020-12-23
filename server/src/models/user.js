@@ -53,16 +53,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         },
       },
-    googleId: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      unique: true,
-    },
-    facebookId: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      unique: true,
-    },
+
   });
   User.prototype.compare = function (pass) {
     return bcrypt.compareSync(pass, this.phone);

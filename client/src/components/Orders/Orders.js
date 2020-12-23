@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title/Title';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTransactions } from '../../store/actions/transactionActions/transactionActions';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
@@ -53,9 +54,9 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="/balance" >
+        <NavLink color="primary" to="/balance" >
           Ver Saldo
-        </Link>
+        </NavLink>
       </div>
     </React.Fragment>
   );

@@ -24,15 +24,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+      margin: theme.spacing(1),
+      backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[700] : theme.palette.grey[900],
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+      margin: theme.spacing(3, 0, 2),
+      backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[500] : theme.palette.grey[700],
   },
 }));
 
@@ -88,10 +91,9 @@ export default function ConfirmPage() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
-            Confirm Pay
+            Confirma el Pago
           </Button>
         </form>
       </div>

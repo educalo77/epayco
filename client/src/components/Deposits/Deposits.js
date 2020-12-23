@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     backgroundColor: 'grey'
+  },
+  title: {
+    fontSize: '40px'
   }
 
 }));
@@ -43,7 +46,7 @@ export default function Deposits() {
   return (
   
     <React.Fragment  >
-      <Title>Saldo Disponible {user && user.email? ('de ' + user.email) : ('')} </Title>
+      <h1>Saldo Disponible</h1>
       <Typography component="p" variant="h4" className={classes.depositContext}>
         ${balance?.available}
       </Typography>

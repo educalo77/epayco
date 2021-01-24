@@ -13,12 +13,19 @@ https://epayco-vercel.vercel.app/signin (mailgun not working with Heroku)
 4- .env inside server and in soap folders should contain the following lines:
 
 EMAIL_SECRET = cat123
+
 PG_USER = <your user_name in postgres>
+  
 PG_PASSWORD = <your upassword in postgres>
+  
 PG_HOST = localhost
+
 PG_PORT = 5432
+
 PG_DATABASE = <your db_name you have created in postgres>
+  
 MAILGUN_API_KEY = <your mailgun's api_key>
+
 MAILGUN = <your mailgun's domain>
 
 5- run npm start on client / server / soap

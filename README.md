@@ -2,7 +2,7 @@
 
 ## Insrtuctions
 
-https://epayco-vercel.vercel.app/signin (mailgun not working with Heroku)
+https://epayco-vercel.vercel.app/signin (mailgun not working at Heroku)
 
 1- install dependencies inside client / server / soap
 
